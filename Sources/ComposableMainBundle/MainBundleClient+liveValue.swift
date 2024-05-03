@@ -3,7 +3,7 @@ import Foundation
 
 extension MainBundleClient {
     
-    public static let liveValue: MainBundleClient = {
+    public static var liveValue: MainBundleClient {
         let bundle = LockIsolated(Bundle.main)
         
         func property(forKey key: String) -> Any? {
@@ -26,5 +26,5 @@ extension MainBundleClient {
             buildNumber: string(forKey: "CFBundleVersion", default: ""),
             buildVersion: string(forKey: "CFBundleShortVersionString", default: "")
         )
-    }()
+    }
 }

@@ -2,7 +2,7 @@
 
 <p>
     <img src="https://img.shields.io/badge/Swift-5.9-orange.svg" />
-    <img src="https://img.shields.io/badge/iOS->= 15.0-red.svg" />
+    <img src="https://img.shields.io/badge/platform-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS-lightgrey.svg">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" />
 </p>
 
@@ -14,9 +14,9 @@ The client can be used in reducers to access the main bundle properties.
 
 ```swift
 @Dependency(\.mainBundleClient)
-var mainBundle
+var bundle
 
-let bundleDescription = "\(mainBundle.buildVersion()):\(mainBundle.buildNumber())" 
+let description = "\(bundle.buildVersion()):\(bundle.buildNumber())" 
 ```
 
 ## Installation

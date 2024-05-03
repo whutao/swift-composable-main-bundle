@@ -4,7 +4,11 @@ import PackageDescription
 let package = Package(
     name: "swift-composable-main-bundle",
     platforms: [
-        .iOS(.v15)
+        .iOS(.v13),
+        .tvOS(.v13),
+        .watchOS(.v6),
+        .macOS(.v10_15),
+        .macCatalyst(.v13)
     ],
     products: [
         .library(name: "ComposableMainBundle", targets: ["ComposableMainBundle"])
