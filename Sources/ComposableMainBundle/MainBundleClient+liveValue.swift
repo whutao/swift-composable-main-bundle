@@ -11,20 +11,21 @@ extension MainBundleClient {
         }
         
         func string(forKey key: String) -> String? {
-            property(forKey: key) as? String
+            return property(forKey: key) as? String
         }
         
-        func string(forKey key: String, default: String) -> (() -> String) {
-            return { string(forKey: key) ?? `default` }
+        func stringGetter(forKey key: String) -> (() -> String?) {
+            return { string(forKey: key) }
         }
         
         return MainBundleClient(
             property: property(forKey:),
             string: string(forKey:),
-            name: string(forKey: "CFBundleName", default: ""),
-            displayName: string(forKey: "CFBundleDisplayName", default: ""),
-            buildNumber: string(forKey: "CFBundleVersion", default: ""),
-            buildVersion: string(forKey: "CFBundleShortVersionString", default: "")
+            buildNumber: stringGetter(forKey: "CFBundleVersion"),
+            buildVersion: stringGetter(forKey: "CFBundleShortVersionString"),
+            displayName: stringGetter(forKey: "CFBundleDisplayName"),
+            identifier: stringGetter(forKey: "CFBundleIdentifier"),
+            name: stringGetter(forKey: "CFBundleName")
         )
     }
 }

@@ -13,10 +13,14 @@
 The client can be used in reducers to access the main bundle properties.
 
 ```swift
+import ComposableMainBundle
+
 @Dependency(\.mainBundleClient)
 var bundle
 
-let description = "\(bundle.buildVersion()):\(bundle.buildNumber())" 
+let buildVersion = bundle.buildVersion() ?? ""
+let buildNumber = bundle.buildNumber() ?? ""
+let description = "\(buildVersion):\(buildNumber)" 
 ```
 
 ## Installation
@@ -29,7 +33,10 @@ If you want to use the library in a [SwiftPM](https://swift.org/package-manager/
 
 ``` swift
 dependencies: [
-    .package(url: "https://github.com/whutao/swift-composable-main-bundle", from: "1.0.0")
+    .package(
+        url: "https://github.com/whutao/swift-composable-main-bundle",
+        from: "1.0.0"
+    )
 ]
 ```
 

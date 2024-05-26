@@ -11,7 +11,10 @@ let package = Package(
         .macCatalyst(.v13)
     ],
     products: [
-        .library(name: "ComposableMainBundle", targets: ["ComposableMainBundle"])
+        .library(
+            name: "ComposableMainBundle",
+            targets: ["ComposableMainBundle"]
+        )
     ],
     dependencies: [
         .package(
